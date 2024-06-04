@@ -6,19 +6,19 @@ def input_fuzzy(ndvi_input, reflektansi_input):
     # Definisikan variabel input dan output untuk fuzzy
     nilai_ndvi = ctrl.Antecedent(np.arange(0, 1.1, 0.1), 'nilai_ndvi')
     nilai_reflektansi = ctrl.Antecedent(np.arange(0, 101, 1), 'nilai_reflektansi')
-    kualitas_tanaman = ctrl.Consequent(np.arange(0, 101, 1), 'kualitas_tanaman')
+    kualitas_tanaman = ctrl.Consequent(np.arange(0, 51, 1), 'kualitas_tanaman')
 
     # Membership functions for NDVI
-    nilai_ndvi['rendah'] = fuzz.trimf(nilai_ndvi.universe, [0, 0, 0.26])
-    nilai_ndvi['tinggi'] = fuzz.trapmf(nilai_ndvi.universe, [0.2, 0.3, 1, 1])
+    nilai_ndvi['rendah'] = fuzz.trimf(nilai_ndvi.universe, [0, 0, 0.27])
+    nilai_ndvi['tinggi'] = fuzz.trapmf(nilai_ndvi.universe, [0.25, 0.3, 1, 1])
 
     # Membership functions for Reflektansi
-    nilai_reflektansi['rendah'] = fuzz.trapmf(nilai_reflektansi.universe, [0, 0, 35, 55])
-    nilai_reflektansi['tinggi'] = fuzz.trapmf(nilai_reflektansi.universe, [40, 50, 100, 100])
+    nilai_reflektansi['rendah'] = fuzz.trapmf(nilai_reflektansi.universe, [0, 0, 35, 49.5])
+    nilai_reflektansi['tinggi'] = fuzz.trapmf(nilai_reflektansi.universe, [47.5, 50, 100, 100])
 
     # Membership functions for Kualitas Tanaman
-    kualitas_tanaman['sakit'] = fuzz.trimf(kualitas_tanaman.universe, [0, 25, 50])
-    kualitas_tanaman['sehat'] = fuzz.trapmf(kualitas_tanaman.universe, [40, 60, 100, 100])
+    kualitas_tanaman['sakit'] = fuzz.trimf(kualitas_tanaman.universe, [0, 35, 55])
+    kualitas_tanaman['sehat'] = fuzz.trimf(kualitas_tanaman.universe, [45, 75, 100, 100])
 
     # Define the fuzzy rules
     rule1 = ctrl.Rule(nilai_ndvi['rendah'] | nilai_reflektansi['tinggi'], kualitas_tanaman['sakit'])
