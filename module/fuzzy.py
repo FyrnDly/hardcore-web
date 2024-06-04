@@ -18,7 +18,7 @@ def input_fuzzy(ndvi_input, reflektansi_input):
 
     # Membership functions for Kualitas Tanaman
     kualitas_tanaman['sakit'] = fuzz.trimf(kualitas_tanaman.universe, [0, 35, 55])
-    kualitas_tanaman['sehat'] = fuzz.trimf(kualitas_tanaman.universe, [45, 75, 100, 100])
+    kualitas_tanaman['sehat'] = fuzz.trapmf(kualitas_tanaman.universe, [45, 75, 100, 100])
 
     # Define the fuzzy rules
     rule1 = ctrl.Rule(nilai_ndvi['rendah'] | nilai_reflektansi['tinggi'], kualitas_tanaman['sakit'])

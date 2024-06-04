@@ -90,34 +90,3 @@ p {
         align-items: center;
     }
 }
-
-input[type="file"] {
-        display: none;
-}
-
-label {
-    background-color: #3a3a3a;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.file-name {
-    background-color: #2e2e2e;
-    padding: 10px;
-    border-radius: 5px;
-    flex-grow: 1;
-    text-align: left;
-    color: #ccc;
-    padding-left: 10px;
-}
-
-.upload-btn {
-    background-color: #3a3a3a;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
